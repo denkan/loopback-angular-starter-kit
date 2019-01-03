@@ -1,0 +1,8 @@
+<div class="full-cover d-flex flex-column bg-body-bg">
+  <app-toolbar
+    [title]="title"
+    [user]="user.smartState$ | async"
+  ></app-toolbar>
+
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,180 @@
+@import "variables";
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+
+
+/* Customize */
+$custom-typography: mat-typography-config(
+    $font-family: quote($font-family-base)
+);
+
+@include mat-core($custom-typography);
+
+
+// Generated palletes from http://mcg.mbitson.com/
+
+$md-theme-primary: (
+    50 : #e1e0e6,
+    100 : #b3b3c2,
+    200 : #818099,
+    300 : #4f4d70,
+    400 : #292651,
+    500 : $color-primary,
+    600 : #03002d,
+    700 : #020026,
+    800 : #02001f,
+    900 : $color-primary-dark,
+    A100 : #5454ff,
+    A200 : #2121ff,
+    A400 : #0000ed,
+    A700 : #0000d4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-theme-secondary: (
+    50 : #e7fbf2,
+    100 : #c4f4de,
+    200 : #9dedc8,
+    300 : #76e6b2,
+    400 : #58e0a2,
+    500 : $color-secondary,
+    600 : #35d789,
+    700 : #2dd27e,
+    800 : #26cd74,
+    900 : #19c462,
+    A100 : #f7fffa,
+    A200 : #c4ffdb,
+    A400 : #91ffbd,
+    A700 : #78ffad,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+// Define the theme.
+$theme-app-primary: mat-palette($md-theme-primary, 500, 900);
+$theme-app-accent:  mat-palette($md-theme-secondary);
+$theme-app-theme:   mat-light-theme($theme-app-primary, $theme-app-accent);
+
+// Include the theme styles for only specified components.
+@include mat-core-theme($theme-app-theme);
+// @include mat-autocomplete-theme($theme-app-theme);
+@include mat-button-theme($theme-app-theme);
+// @include mat-checkbox-theme($theme-app-theme);
+// @include mat-dialog-theme($theme-app-theme);
+@include mat-tabs-theme($theme-app-theme);
+@include mat-form-field-theme($theme-app-theme);
+@include mat-input-theme($theme-app-theme);
+// @include mat-menu-theme($theme-app-theme);
+@include mat-icon-theme($theme-app-theme);
+// @include mat-expansion-panel-theme($theme-app-theme);
+@include mat-toolbar-theme($theme-app-theme);
+@include mat-card-theme($theme-app-theme);
+// @include mat-datepicker-theme($theme-app-theme);
+// @include mat-checkbox-theme($theme-app-theme);
+// @include mat-select-theme($theme-app-theme);
+// @include mat-tooltip-theme($theme-app-theme);
+@include mat-progress-spinner-theme($theme-app-theme);
+// @include mat-slide-toggle-theme($theme-app-theme);
+// @include mat-divider-theme($theme-app-theme);
+// @include mat-slider-theme($theme-app-theme);
+@include mat-snack-bar-theme($theme-app-theme);
+@include mat-list-theme($theme-app-theme);
+@include mat-table-theme($theme-app-theme);
+
+
+
+body {
+    // dialogs
+    .mat-dialog-container { padding: 0; overflow: visible; }
+    .cdk-overlay-pane {
+        @include SCREEN {
+            &.xs, &.xs-full { width: 20em; }
+            &.sm, &.sm-full { width: 30em; }
+            &.md, &.md-full { width: 50em; }
+            &.lg, &.lg-full { width: 70em; }
+        }
+        @include MOBILE {
+          max-width: 95% !important;
+          &.xs-full,
+          &.sm-full,
+          &.md-full,
+          &.lg-full {
+            max-width: 100% !important;
+            width: 100%;
+            height: 100%;
+          }
+        }
+    }
+
+    // mat-menu
+    .mat-menu-item {
+        font-size: 0.9em;
+        line-height: 2;
+        height: auto;
+
+        &:focus {
+            outline: none;
+            background: rgba(black, 0.04);
+        }
+    }
+
+    .mat-form-field {
+      &.no-hint {
+        .mat-form-field-wrapper { padding-bottom: 0; }
+        .mat-form-field-underline { bottom: 0; }
+      }
+    }
+
+
+    // tabs
+    .mat-tab-group,
+    .mat-tab-body-wrapper,
+    .mat-tab-body-content {
+      display: flex;
+      flex: 1 1 auto;
+    }
+
+    .mat-card-header-text {
+      margin: 0;
+    }
+
+    .mat-ripple {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+}

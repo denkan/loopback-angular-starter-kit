@@ -1,0 +1,9 @@
+{
+  "db-mysql1": {
+    "url": "mysql://dbuser:dbpass@dbhost:3306/dbname"
+  },
+  "file-storage1": {
+    "provider": "filesystem",
+    "root": "../storage/files"
+  }
+}

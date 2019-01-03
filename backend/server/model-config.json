@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins",
+      "../node_modules/@mean-expert/loopback-stats-mixin/dist",
+      "../node_modules/@mean-expert/loopback-component-realtime/dist/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../node_modules/loopback-setup-remote-methods-mixin",
+      "../node_modules/loopback-softdelete"
+    ]
+  },
+  "AppUser": {
+    "dataSource": "db-mysql1",
+    "public": true
+  },
+  "AppUserToken": {
+    "dataSource": "db-mysql1",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db-mysql1",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db-mysql1",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db-mysql1",
+    "public": false
+  },
+  "GoogleMaps": {
+    "dataSource": null,
+    "public": false
+  },
+  "Cache": {
+    "dataSource": null,
+    "public": false
+  },
+  "BaseUser": {
+    "dataSource": null,
+    "public": false
+  },
+  "File": {
+    "dataSource": "db-mysql1",
+    "public": false
+  },
+  "FileStorage": {
+    "dataSource": "file-storage1",
+    "public": false
+  },
+  "ImageCache": {
+    "dataSource": "image-cache-storage1",
+    "public": false
+  },
+  "PushReceiver": {
+    "dataSource": "db-mysql1",
+    "public": false
+  },
+  "PushNotification": {
+    "dataSource": "db-mysql1",
+    "public": false
+  },
+  "Push": {
+    "dataSource": "db-memory1",
+    "public": true
+  },
+  "PushJobs": {
+    "dataSource": null,
+    "public": false
+  },
+  "PushProviderOnesignal": {
+    "dataSource": null,
+    "public": false
+  },
+  "DummyItem": {
+    "dataSource": "db-mysql1",
+    "public": true
+  }
+}

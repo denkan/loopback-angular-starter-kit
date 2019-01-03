@@ -1,0 +1,30 @@
+<form action="javascript:void(0)" (ngSubmit)="onLogin(login)" #loginForm="ngForm" class="p-1">
+
+  <p>
+    <mat-form-field class="full-width">
+      <input matInput
+        placeholder="Username / E-mail"
+        name="username"
+        [(ngModel)]="login.username"
+      >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <input matInput
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="login.password"
+      autocomplete="current-password"
+    >
+    </mat-form-field>
+  </p>
+  <p>
+    <button matButton type="submit"  class="btn btn-primary" [disabled]="status.loading">
+      <span *ngIf="!status.loading">Login</span>
+      <span *ngIf="status.loading">Logging in... </span>
+    </button>
+  </p>
+
+</form>

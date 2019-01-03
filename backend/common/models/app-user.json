@@ -1,0 +1,77 @@
+{
+  "name": "AppUser",
+  "base": "BaseUser",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "FireLoop": true,
+    "TimeStamp": {
+      "required": false
+    },
+    "SetupRemoteMethods": {
+      "ignoreACL": true,
+      "disableAllExcept": [
+        "find",
+        "findById",
+        "create",
+        "login",
+        "logout",
+        "changePassword"
+      ],
+      "relations": {
+        "games": {
+          "disableAllExcept": [
+            "get"
+          ]
+        }
+      }
+    },
+    "Stats": [
+      {
+        "method": "stats",
+        "endpoint": "/stats",
+        "description": "Statistical information for AppUser registers.",
+        "type": "model",
+        "count": {
+          "on": "createdAt",
+          "by": "index"
+        }
+      }
+    ]
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AppUserToken",
+      "foreignKey": "userId"
+    },
+    "games": {
+      "type": "hasMany",
+      "model": "Game",
+      "foreignKey": "",
+      "through": "GameUser"
+    },
+    "pushReceivers": {
+      "type": "hasMany",
+      "model": "PushReceiver",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__games"
+    }
+  ],
+  "methods": {}
+}

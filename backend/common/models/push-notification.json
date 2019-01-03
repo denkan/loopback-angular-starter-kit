@@ -1,0 +1,56 @@
+{
+  "name": "PushNotification",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "FireLoop": true,
+    "TimeStamp": {
+      "required": false
+    },
+    "Stats": [
+      {
+        "method": "stats",
+        "endpoint": "/stats",
+        "description": "Statistical information for PushNotification registers.",
+        "type": "model",
+        "count": {
+          "on": "createdAt",
+          "by": "index"
+        }
+      }
+    ]
+  },
+  "properties": {
+    "trackId": {
+      "type": "string",
+      "length": 128,
+      "defaultFn": "uuidv4"
+    },
+    "notificationData": {
+      "type": "object",
+      "required": true
+    },
+    "sentAt": {
+      "type": "date"
+    },
+    "sentResponse": {
+      "type": "object"
+    },
+    "sentResponseStatus": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pushReceiver": {
+      "type": "belongsTo",
+      "model": "PushReceiver",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

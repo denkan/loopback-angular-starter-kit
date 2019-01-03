@@ -1,0 +1,37 @@
+{
+  "name": "denkapp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup:root": "npm install",
+    "setup:shared": "cd _shared/ && npm install && cd ..",
+    "setup:be": "cd backend/ && npm install && cd ..",
+    "setup:sdk": "node ./_scripts/install-sdk",
+    "setup:fe:ws": "cd frontend/webapp && npm install && cd ../../",
+    "setup": "npm run setup:root && npm run setup:shared && npm run setup:be && npm run setup:fe:ws",
+    "build:fe:ws": "cd frontend/webapp && npm run build && cd ../../",
+    "build": "npm run build:fe:ws",
+    "pm2:start:server": "pm2 start ./deploy/pm2-server.json",
+    "pm2:start": "npm run pm2:start:server",
+    "pm2:stop:server": "pm2 stop ./deploy/pm2-server.json",
+    "pm2:stop": "npm run pm2:stop:server",
+    "pm2:delete:server": "pm2 delete ./deploy/pm2-server.json",
+    "pm2:delete": "npm run pm2:delete:server",
+    "start:pm2": "npm run pm2:delete && npm run pm2:start",
+    "start:be:prod": "cd backend/ && NODE_ENV=production PORT=3040 node server/server",
+    "start:be:prod:db": "cd backend/ && NODE_ENV=production PORT=3040 node server/server --db-auto-migrate",
+    "start:be:dev": "cd backend/ && NODE_ENV=development node server/server",
+    "start:test": "npm run start:be:prod:db",
+    "start": "npm run start:pm2",
+    "deploy": "npm run setup && npm run build && npm start",
+    "deploy:test": "npm run setup && npm run build && npm run start:test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@mean-expert/fireloop": "^1.0.0-beta.2.7",
+    "pm2": "^2.10.2"
+  }
+}

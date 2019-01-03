@@ -1,0 +1,16 @@
+{
+    "apps" : [{
+      "name"       : "denkapp-PROD-3040",
+      "cwd"        : "backend/",
+      "script"     : "server/server.js",
+      "env": {
+        "NODE_ENV" : "production",
+        "PORT"     : 3040
+      },
+      "instances"  : 1,
+      "exec_mode"  : "cluster_mode",
+      "error_file" : "../logs/denkapp-server-err.log",
+      "out_file"   : "../logs/denkapp-server-out.log",
+      "pid_file"   : "../logs/denkapp-server.pid"
+    }]
+  }

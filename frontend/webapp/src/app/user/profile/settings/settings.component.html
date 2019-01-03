@@ -1,0 +1,7 @@
+<app-shell title="Settings">
+
+  <app-account [user]="user.user$ | async"></app-account>
+  <app-password></app-password>
+  <app-sign-out (signout)="user.logout()"></app-sign-out>
+
+</app-shell>

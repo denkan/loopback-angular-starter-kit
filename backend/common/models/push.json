@@ -1,0 +1,23 @@
+{
+  "name": "Push",
+  "plural": "Push",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "FireLoop": true,
+    "SetupRemoteMethods": {
+      "ignoreACL": true,
+      "disableAllExcept": [
+        "register"
+      ]
+    }
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

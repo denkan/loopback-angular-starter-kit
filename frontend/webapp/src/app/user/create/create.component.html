@@ -1,0 +1,41 @@
+<form action="javascript:void(0)" (ngSubmit)="onCreate(user)" #userForm="ngForm" class="p-1">
+
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput
+          placeholder="E-mail"
+          name="email"
+          [(ngModel)]="user.email"
+          autocomplete="email"
+        >
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput
+          placeholder="Username"
+          name="username"
+          [(ngModel)]="user.username"
+          autocomplete="username"
+        >
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput
+        type="password"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="user.password"
+        autocomplete="current-password"
+      >
+      </mat-form-field>
+    </p>
+    <p>
+      <button matButton type="submit"  class="btn btn-primary" [disabled]="status.loading">
+        <span *ngIf="!status.loading">Sign up</span>
+        <span *ngIf="status.loading">Signing up... </span>
+      </button>
+    </p>
+
+  </form>

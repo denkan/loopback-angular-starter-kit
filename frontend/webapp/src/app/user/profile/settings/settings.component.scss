@@ -1,0 +1,39 @@
+
+
+:host /deep/ {
+  h2 {
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .mat-list {
+    .mat-list-item {
+      /deep/ .mat-list-item-content {
+        padding: 0;
+      }
+
+      .label {
+        font-weight: normal;
+        font-size: 1em;
+        margin: 0;
+        min-width: 7em;
+        width: 30%;
+      }
+      .value {
+        margin: 0;
+        width: 70%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        .mat-form-field {
+          width: 100%;
+        }
+      }
+
+      &.disabled, .disabled {
+        opacity: 0.65;
+      }
+    }
+  }
+}

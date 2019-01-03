@@ -1,0 +1,65 @@
+{
+  "name": "File",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "FireLoop": true,
+    "TimeStamp": {
+      "required": false
+    },
+    "Stats": [
+      {
+        "method": "stats",
+        "endpoint": "/stats",
+        "description": "Statistical information for File registers.",
+        "type": "model",
+        "count": {
+          "on": "createdAt",
+          "by": "index"
+        }
+      }
+    ]
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "originalFilename": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "size": {
+      "type": "number"
+    },
+    "storageModel": {
+      "type": "string",
+      "index": true
+    },
+    "containerName": {
+      "type": "string",
+      "index": true
+    },
+    "applicationType": {
+      "type": "string",
+      "index": true
+    },
+    "param1": {
+      "type": "string"
+    },
+    "param2": {
+      "type": "string"
+    },
+    "param3": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,22 @@
+{
+  "db-memory1": {
+    "name": "db-memory1",
+    "connector": "memory"
+  },
+  "db-mysql1": {
+    "name": "db-mysql1",
+    "connector": "mysql"
+  },
+  "file-storage1": {
+    "name": "file-storage1",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "../storage/files"
+  },
+  "image-cache-storage1": {
+    "name": "image-cache-storage1",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "../storage/cache"
+  }
+}

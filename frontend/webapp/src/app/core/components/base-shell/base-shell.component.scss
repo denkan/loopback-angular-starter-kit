@@ -1,0 +1,14 @@
+@import "variables";
+
+:host {
+    display: block;
+    background: $body-bg url("/assets/img/bg.jpg") repeat center center;
+}
+
+
+
+.site-main {
+    // background: $color-white;
+    // box-shadow: 0 3px 5px rgba($color-black, 0.15);
+    // min-height: 70vh;
+}
